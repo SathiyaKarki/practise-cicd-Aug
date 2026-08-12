@@ -1,12 +1,14 @@
 version: 0.0
+
 os: linux
 
 files:
   - source: /
     destination: /var/www/html
+    overwrite: true
 
 hooks:
   AfterInstall:
-    - location: scripts/restart_server.sh
+    - location: scripts/deploy.sh
       timeout: 300
       runas: root
