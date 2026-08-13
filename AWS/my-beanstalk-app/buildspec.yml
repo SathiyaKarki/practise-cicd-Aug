@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Current directory:"
+      - pwd
+      - echo "Repository contents:"
+      - ls -la
+      - echo "AWS contents:"
+      - ls -la AWS
+
+artifacts:
+  files:
+    # Package ALL files from the current location (which is now my-beanstalk-app)
+    - '**/*'
+  # CRITICAL: Define the base directory to ensure only its contents are zipped
+  base-directory: AWS/my-beanstalk-app
