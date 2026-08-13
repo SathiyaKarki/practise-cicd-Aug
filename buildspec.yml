@@ -3,16 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing
-
-  build:
-    commands:
-      - echo Build Started
-
-  post_build:
-    commands:
-      - echo Build Completed
+      # Navigate to your application's directory
+      - cd AWS/my-beanstalk-app
 
 artifacts:
   files:
+    # Package ALL files from the current location (which is now my-beanstalk-app)
     - '**/*'
+  # CRITICAL: Define the base directory to ensure only its contents are zipped
+  base-directory: AWS/my-beanstalk-app
